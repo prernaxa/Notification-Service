@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const redisClient = require('../utils/redisClient');
 const Notification = require('../models/Notification');
 const sendEmail = require('../utils/emailClient');
-
+const smsService = require('../services/smsService');  // <-- Import your SMS service
 
 console.log('MONGO_URI:', process.env.MONGO_URI);
 console.log('REDIS_URL:', process.env.REDIS_URL);
@@ -36,7 +36,20 @@ const processNotification = async () => {
 
         console.log(`✅ Sent email to user ${notification.userId}: ${notification.message}`);
         await Notification.findByIdAndUpdate(notification._id, { status: 'sent' });
+
+      } else if (notification.type === 'sms') {
+        // Make sure userPhone is present in notification object
+        if (!notification.userPhone) {
+          throw new Error('No phone number provided for SMS notification');
+        }
+
+        await smsService.send(notification.userPhone, notification.message);
+
+        console.log(`✅ Sent SMS to user ${notification.userId} at ${notification.userPhone}: ${notification.message}`);
+        await Notification.findByIdAndUpdate(notification._id, { status: 'sent' });
+
       } else {
+        // For in-app or other notification types
         console.log(`✅ Sent ${notification.type} to user ${notification.userId}: ${notification.message}`);
         await Notification.findByIdAndUpdate(notification._id, { status: 'sent' });
       }
