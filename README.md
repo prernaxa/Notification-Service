@@ -65,8 +65,8 @@ A backend service to send notifications via **Email**, **SMS**, and **In-App** m
 
 | Method | Endpoint                    | Description                   |
 |--------|-----------------------------|-------------------------------|
-| POST   | `/notifications`            | Send a notification            |
-| GET    | `/users/:id/notifications` | Get notifications for a user   |
+| POST   | `api/notifications`            | Send a notification            |
+| GET    | `api/users/:id/notifications` | Get notifications for a user   |
 
 ---
 
