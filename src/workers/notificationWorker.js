@@ -1,9 +1,10 @@
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 const mongoose = require('mongoose');
 const redisClient = require('../utils/redisClient');
 const Notification = require('../models/Notification');
 const sendEmail = require('../utils/emailClient');
-const path = require('path');
-require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
+
 
 console.log('MONGO_URI:', process.env.MONGO_URI);
 console.log('REDIS_URL:', process.env.REDIS_URL);

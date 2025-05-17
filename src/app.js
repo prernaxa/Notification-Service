@@ -1,10 +1,9 @@
-const dotenv = require('dotenv');
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const notificationRoutes = require('./routes/notificationRoutes');
 
 const app = express();
-dotenv.config();
 
 app.use(express.json());
 app.use('/api', notificationRoutes);
