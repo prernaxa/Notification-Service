@@ -19,7 +19,7 @@ A backend service to send notifications via **Email**, **SMS**, and **In-App** m
 1. **Clone the repository**
 
     ```bash
-    git clone <your-repo-url>
+    git clone "https://github.com/prernaxa/Notification-Service"
     cd Notification-Service
     ```
 
