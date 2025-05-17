@@ -34,7 +34,7 @@ A backend service to send notifications via **Email**, **SMS**, and **In-App** m
     Create a `.env` file inside the `src` folder with the following variables:
 
     ```env
-    MONGODB_URI=<your-mongodb-connection-string>
+    MONGO_URI=<your-mongodb-connection-string>
     REDIS_URL=<your-redis-url>
     PORT=3000
     EMAIL_USER=<your-email-address>
