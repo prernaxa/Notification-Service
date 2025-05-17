@@ -5,8 +5,10 @@ const sendEmail = require('../utils/emailClient');
 const path = require('path');
 require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 
+console.log('MONGO_URI:', process.env.MONGO_URI);
+console.log('REDIS_URL:', process.env.REDIS_URL);
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/notifications')
+mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/notifications')
   .then(() => {
     console.log('Worker connected to MongoDB ✅');
   })
