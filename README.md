@@ -8,6 +8,7 @@ A backend service to send notifications via **Email**, **SMS**, and **In-App** m
 
 - REST API to send notifications and fetch user notifications
 - Supports **Email**, **SMS**, and **In-App** notification types
+- SMS sending integrated via **Twilio**
 - Queue-based processing using **Redis**
 - Retry mechanism for failed notifications (up to 3 retries)
 - MongoDB for notification persistence
@@ -39,6 +40,9 @@ A backend service to send notifications via **Email**, **SMS**, and **In-App** m
     PORT=3000
     EMAIL_USER=<your-email-address>
     EMAIL_PASS=<your-email-password>
+    TWILIO_SID=<your-twilio-account-sid>
+    TWILIO_AUTH_TOKEN=<your-twilio-auth-token>
+    TWILIO_PHONE=<your-twilio-phone-number>
     ```
 
 4. **Run the API server**
@@ -69,7 +73,7 @@ A backend service to send notifications via **Email**, **SMS**, and **In-App** m
 ## Assumptions & Notes
 
 - Email sending is done via Gmail SMTP using [Nodemailer](https://nodemailer.com/).
-- SMS sending logic is not implemented but can be added similarly.
+- SMS sending is implemented using **Twilio**.
 - Redis is used as a queue for managing notification jobs.
 - Notifications are retried up to 3 times on failure.
 - MongoDB stores notification records for persistence.
