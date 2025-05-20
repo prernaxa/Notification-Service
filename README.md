@@ -70,6 +70,14 @@ A backend service to send notifications via **Email**, **SMS**, and **In-App** m
 
 ---
 
+## API Documentation
+
+Explore the complete API documentation with example requests and responses at the Postman link:
+
+[Notification Service API Docs](https://documenter.getpostman.com/view/28669218/2sB2qWJ4vH)
+
+---
+
 ## Assumptions & Notes
 
 - Email sending is done via Gmail SMTP using [Nodemailer](https://nodemailer.com/).
